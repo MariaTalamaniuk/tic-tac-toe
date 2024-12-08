@@ -8,8 +8,10 @@ def check_winner(board,player):
         if all(cell == player for cell in row):
             return True
     for col in range(3):
-        if all(row[col] == playr for row in board):
+        if all(row[col] == player for row in board):
             return True
     if all(board[i][i] == player for i in range(3)) or all(board[i][2 - i] == player for i in range(3)):
         return True
-    return False 
+    return False
+def is_draw(board):
+    return all(cell !=' ' for row in board for cell in row)
